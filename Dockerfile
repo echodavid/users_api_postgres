@@ -1,19 +1,14 @@
-FROM node:16
+FROM debian:bullseye
+RUN apt-get update
 
-# Establece el directorio de trabajo dentro del contenedor
-WORKDIR /src
+RUN apt-get install -y curl make g++
 
-# Copia el archivo package.json y package-lock.json
-ADD package.json /src/package.json
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
 
-# Instala las dependencias
+ADD . /
 RUN npm install
 
-# Copia el resto de los archivos de la aplicación
-COPY . /
-
-# Expone el puerto 8300
 EXPOSE 8080
 
-# Comando para iniciar la aplicación
-CMD [ "node", "src/index.js" ]
+CMD  ["node", "index.js"]
