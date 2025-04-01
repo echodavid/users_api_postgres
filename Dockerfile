@@ -10,7 +10,7 @@ ADD package.json /src/package.json
 RUN npm install
 
 # Copia el resto de los archivos de la aplicación
-COPY . /src
+COPY . /
 
 # Expone el puerto 8300
 EXPOSE 8080
