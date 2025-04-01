@@ -13,7 +13,7 @@ RUN npm install
 COPY . /src
 
 # Expone el puerto 8300
-EXPOSE 8300
+EXPOSE 8080
 
 # Comando para iniciar la aplicación
 CMD [ "node", "src/index.js" ]

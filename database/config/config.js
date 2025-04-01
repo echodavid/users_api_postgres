@@ -2,27 +2,18 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD || null,
-    database: process.env.DB_NAME || 'database_development',
-    host: process.env.DB_HOST || '127.0.0.1',
-    port: process.env.DB_PORT || 5432,
+    use_env_variable: 'DATABASE_URL',
+    url: process.env.DATABASE_URL || 'postgres://root:password@127.0.0.1:5432/database_development',
     dialect: 'postgres',
   },
   test: {
-    username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD || null,
-    database: process.env.TEST_DB_NAME || 'database_test',
-    host: process.env.DB_HOST || '127.0.0.1',
-    port: process.env.DB_PORT || 5432,
+    use_env_variable: 'TEST_DATABASE_URL',
+    url: process.env.TEST_DATABASE_URL || 'postgres://root:password@127.0.0.1:5432/database_test',
     dialect: 'postgres',
   },
   production: {
-    username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD || null,
-    database: process.env.PROD_DB_NAME || 'database_production',
-    host: process.env.DB_HOST || '127.0.0.1',
-    port: process.env.DB_PORT || 5432,
+    use_env_variable: 'PROD_DATABASE_URL',
+    url: process.env.PROD_DATABASE_URL || 'postgres://root:password@127.0.0.1:5432/database_production',
     dialect: 'postgres',
   },
 };
