@@ -5,10 +5,10 @@ const router = Router();
 
 router.get('/', (req, res) => res.send('Welcome to the API!'));
 
-router.post('/users', controllers.createUser);
-router.get('/users', controllers.getAllUsers);
 router.get('/users/:id', controllers.getUserById);
 router.put('/users/:id', controllers.updateUser);
+router.post('/users', controllers.createUser);
+router.get('/users', controllers.getAllUsers);
 router.delete('/users/:id', controllers.deleteUser);
 
 
